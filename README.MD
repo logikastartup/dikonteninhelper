@@ -128,4 +128,4 @@ Lisensi MIT
 
 ## Dukungan
 
-Untuk dukungan, silakan buka issue di repository.
+Untuk dukungan, Anda dapat mengunjungi [Dikontenin.com](https://dikontenin.com)
