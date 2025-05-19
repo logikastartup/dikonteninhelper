@@ -1,26 +1,56 @@
 # Dikontenin Helper
 
-## 🚀 Apa Itu Dikontenin?
+Aplikasi ini adalah aplikasi crawler yang dirancang untuk mengumpulkan sumber dari situs web yang diinginkan untuk Dikontenin.
 
-**[Dikontenin](https://dikontenin.com)** adalah platform AI content generator berbahasa Indonesia yang dirancang untuk mempermudah siapa pun—dari pelaku bisnis, digital marketer, hingga content creator—dalam membuat artikel berkualitas tinggi, SEO-friendly, dan siap publish hanya dengan memasukkan keyword.
+## ✍️ Apa Itu Dikontenin?
 
-Tanpa perlu repot riset panjang atau bayar penulis mahal, semua bisa dikerjakan otomatis dalam hitungan menit.
-
----
-
-## ✨ Kenapa Harus Pakai Dikontenin?
-
-Dengan Dikontenin, kamu bisa:
-
-* 🧠 **Generate Artikel Otomatis:** Cukup masukkan keyword, AI akan menulis artikel lengkap secara otomatis.
-* 🔍 **Riset Keyword Otomatis:** Temukan keyword potensial untuk mendongkrak traffic secara instan.
-* ✍️ **Artikel SEO-Friendly:** Struktur artikel disesuaikan agar optimal di mesin pencari.
-* ⚡ **Hemat Waktu & Biaya:** Lebih cepat dan hemat hingga 80% dibanding metode konvensional.
+**[Dikontenin](https://dikontenin.com)** adalah aplikasi pembuat konten berbahasa Indonesia dan Inggris yang dirancang untuk membantu Anda menyusun artikel berkualitas tinggi dalam waktu singkat. Dikontenin memfasilitasi proses kreatif dengan menyediakan kerangka dan draf awal yang bisa Anda kembangkan sesuai gaya dan kebutuhan.
 
 ---
 
-Kunjungi sekarang 👉 [**Dikontenin.com**](https://dikontenin.com) dan mulai buat konten berkualitas dalam waktu singkat!
+## 🔍 Kenapa Harus Pakai Dikontenin?
 
+1. **Buat Artikel Otomatis**  
+   Hanya dengan memasukkan topik atau judul, Dikontenin menghasilkan artikel berkualitas tinggi yang terstruktur.  
+2. **Optimasi Struktur & SEO**  
+   Setiap artikel sudah diolah agar memenuhi kaidah SEO dan mudah dibaca pembaca.  
+3. **Hemat Waktu & Biaya**  
+   Proses penulisan yang biasanya membutuhkan berjam-jam kini bisa dipersingkat menjadi menit, tanpa mengurangi kualitas.  
+4. **Hasil Tulisan Natural**  
+   Bahasa yang dihasilkan tetap mengalir dan sesuai konteks, memudahkan Anda menambahkan sentuhan pribadi.
+
+---
+
+## ✒️ Dikontenin untuk Blogger dan Content Creator
+
+- **Kendalikan Alur Kreatif**: Atasi kebuntuan ide dengan artikel siap edit.  
+- **Fokus pada Gaya & Voice**: Gunakan Dikontenin untuk bagian yang repetitif, lalu poles dengan gaya unik Anda.  
+- **Percepat Jadwal Terbit**: Buat atau update konten segar tanpa menunda kalender editorial.
+
+---
+
+## 🎯 Dikontenin untuk SEO Specialist
+
+- **Search-Intent Alignment**: Artikel dibuat sesuai dengan pola pencarian yang dicari audiens.  
+- **Struktur Heading & Subheading**: Mendukung optimasi on-page agar lebih mudah di-crawl mesin pencari.  
+- **Konsistensi Keyword**: Bantu menjaga kepadatan dan distribusi kata kunci secara natural.
+
+---
+
+## 🏢 Dikontenin untuk Perusahaan dan Agensi Digital
+
+- **Skalabilitas Konten**: Buat satu cluster artikel (hingga 30 artikel) tanpa repot menambah tim.  
+- **Standardisasi Kualitas**: Pastikan setiap artikel memenuhi standar brand voice dan pedoman internal.
+
+---
+
+## 🚀 Ayo Coba Sekarang
+
+Rasakan kemudahan membuat konten berkualitas dalam hitungan menit.  
+👉 Kunjungi [**Dikontenin.com**](https://dikontenin.com) dan mulai percobaan gratis Anda hari ini!
+
+---
+---
 
 ## Update Fitur
 
@@ -33,12 +63,16 @@ Kunjungi sekarang 👉 [**Dikontenin.com**](https://dikontenin.com) dan mulai bu
 - **API RESTful**: Akses terprogram ke semua fungsionalitas
 - **Desain Responsif**: Berfungsi pada perangkat desktop dan tablet
 
+---
+
 ## Persyaratan
 
 - Python 3.12+
 - Browser Chrome atau Firefox
 - Paket Python yang diperlukan (lihat requirements.txt)
 - Google Chrome (untuk Selenium WebDriver)
+
+---
 
 ## Instalasi
 
@@ -64,6 +98,8 @@ Kunjungi sekarang 👉 [**Dikontenin.com**](https://dikontenin.com) dan mulai bu
    python main_gui.py
    ```
 
+---
+
 ## Penggunaan
 
 Ini akan:
@@ -88,6 +124,8 @@ Antarmuka web memungkinkan Anda untuk:
    - Perluas/ciutkan bagian konten
    - Salin konten ke clipboard dalam format JSON
 
+---
+
 ## Konfigurasi
 
 Edit `config.ini` untuk menyesuaikan perilaku aplikasi:
@@ -108,6 +146,8 @@ sleep_time = 3          # Waktu tunggu untuk pemuatan halaman
 browser_path =          # Opsional: Jalur ke binary Chrome/Firefox
 ```
 
+---
+
 ## Menjalankan Secara Lokal
 
 1. Instal dependensi:
@@ -122,9 +162,13 @@ browser_path =          # Opsional: Jalur ke binary Chrome/Firefox
 
 3. Akses antarmuka web di: http://localhost:8000
 
+---
+
 ## Lisensi
 
-Lisensi MIT
+Dikontenin Helper berlisensi  [MIT](https://opensource.org/license/mit)
+
+---
 
 ## Dukungan
 
