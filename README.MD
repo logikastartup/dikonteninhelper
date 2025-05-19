@@ -1,55 +1,7 @@
 # Dikontenin Helper
 
-Aplikasi ini adalah aplikasi crawler yang dirancang untuk mengumpulkan sumber dari situs web yang diinginkan untuk Dikontenin.
+Aplikasi Dikontenin Helper adalah aplikasi pembantu yang dirancang untuk mengumpulkan sumber dari situs web yang diinginkan untuk Dikontenin.
 
-## ✍️ Apa Itu Dikontenin?
-
-**[Dikontenin](https://dikontenin.com)** adalah aplikasi pembuat konten berbahasa Indonesia dan Inggris yang dirancang untuk membantu Anda menyusun artikel berkualitas tinggi dalam waktu singkat. Dikontenin memfasilitasi proses kreatif dengan menyediakan kerangka dan draf awal yang bisa Anda kembangkan sesuai gaya dan kebutuhan.
-
----
-
-## 🔍 Kenapa Harus Pakai Dikontenin?
-
-1. **Buat Artikel Otomatis**  
-   Hanya dengan memasukkan topik atau judul, Dikontenin menghasilkan artikel berkualitas tinggi yang terstruktur.  
-2. **Optimasi Struktur & SEO**  
-   Setiap artikel sudah diolah agar memenuhi kaidah SEO dan mudah dibaca pembaca.  
-3. **Hemat Waktu & Biaya**  
-   Proses penulisan yang biasanya membutuhkan berjam-jam kini bisa dipersingkat menjadi menit, tanpa mengurangi kualitas.  
-4. **Hasil Tulisan Natural**  
-   Bahasa yang dihasilkan tetap mengalir dan sesuai konteks, memudahkan Anda menambahkan sentuhan pribadi.
-
----
-
-## ✒️ Dikontenin untuk Blogger dan Content Creator
-
-- **Kendalikan Alur Kreatif**: Atasi kebuntuan ide dengan artikel siap edit.  
-- **Fokus pada Gaya & Voice**: Gunakan Dikontenin untuk bagian yang repetitif, lalu poles dengan gaya unik Anda.  
-- **Percepat Jadwal Terbit**: Buat atau update konten segar tanpa menunda kalender editorial.
-
----
-
-## 🎯 Dikontenin untuk SEO Specialist
-
-- **Search-Intent Alignment**: Artikel dibuat sesuai dengan pola pencarian yang dicari audiens.  
-- **Struktur Heading & Subheading**: Mendukung optimasi on-page agar lebih mudah di-crawl mesin pencari.  
-- **Konsistensi Keyword**: Bantu menjaga kepadatan dan distribusi kata kunci secara natural.
-
----
-
-## 🏢 Dikontenin untuk Perusahaan dan Agensi Digital
-
-- **Skalabilitas Konten**: Buat satu cluster artikel (hingga 30 artikel) tanpa repot menambah tim.  
-- **Standardisasi Kualitas**: Pastikan setiap artikel memenuhi standar brand voice dan pedoman internal.
-
----
-
-## 🚀 Ayo Coba Sekarang
-
-Rasakan kemudahan membuat konten berkualitas dalam hitungan menit.  
-👉 Kunjungi [**Dikontenin.com**](https://dikontenin.com) dan mulai percobaan gratis Anda hari ini!
-
----
 ---
 
 ## Update Fitur
@@ -172,4 +124,6 @@ Dikontenin Helper berlisensi  [MIT](https://opensource.org/license/mit)
 
 ## Dukungan
 
-Untuk dukungan, Anda dapat mengunjungi [Dikontenin.com](https://dikontenin.com)
+**[Dikontenin](https://dikontenin.com)** adalah aplikasi pembuat konten berbahasa Indonesia dan Inggris yang dirancang untuk membantu Anda menyusun artikel berkualitas tinggi dalam waktu singkat. Dikontenin memfasilitasi proses kreatif dengan menyediakan kerangka dan draf awal yang bisa Anda kembangkan sesuai gaya dan kebutuhan.
+
+👉 Kunjungi [**Dikontenin.com**](https://dikontenin.com)
