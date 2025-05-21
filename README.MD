@@ -50,31 +50,7 @@ Aplikasi Dikontenin Helper adalah aplikasi pembantu yang dirancang untuk mengump
    python main_gui.py
    ```
 
----
-
-## Penggunaan
-
-Ini akan:
-1. Memulai server FastAPI
-2. Membuka antarmuka web di browser default Anda
-3. Menampilkan status server di GUI
-
-Antarmuka web memungkinkan Anda untuk:
-
-1. **Crawl URL Baru**
-   - Masukkan URL di bidang input
-   - Klik "Crawl" untuk memulai proses crawling
-   - Lihat status dan hasil di antarmuka
-
-2. **Pencarian dan Penyaringan**
-   - Cari halaman yang di-crawl berdasarkan URL atau judul
-   - Filter hasil berdasarkan rentang tanggal
-   - Urutkan hasil berdasarkan kolom yang berbeda
-
-3. **Lihat Konten**
-   - Klik pada hasil apa pun untuk melihat konten lengkap yang diekstrak
-   - Perluas/ciutkan bagian konten
-   - Salin konten ke clipboard dalam format JSON
+5. Akses antarmuka web di: http://localhost:8000
 
 ---
 
@@ -100,30 +76,14 @@ browser_path =          # Opsional: Jalur ke binary Chrome/Firefox
 
 ---
 
-## Menjalankan Secara Lokal
-
-1. Instal dependensi:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-2. Mulai aplikasi:
-   ```bash
-   python main_gui.py
-   ```
-
-3. Akses antarmuka web di: http://localhost:8000
-
----
-
 ## Lisensi
 
 Dikontenin Helper berlisensi  [MIT](https://opensource.org/license/mit)
 
 ---
 
-## Dukungan
+## Bantuan
 
 **[Dikontenin](https://dikontenin.com)** adalah aplikasi pembuat konten berbahasa Indonesia dan Inggris yang dirancang untuk membantu Anda menyusun artikel berkualitas tinggi dalam waktu singkat. Dikontenin memfasilitasi proses kreatif dengan menyediakan kerangka dan draf awal yang bisa Anda kembangkan sesuai gaya dan kebutuhan.
 
-👉 Kunjungi [**Dikontenin.com**](https://dikontenin.com)
+👉 Untuk bantuan, kunjungi [**Dikontenin.com**](https://dikontenin.com)
