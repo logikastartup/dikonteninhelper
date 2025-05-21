@@ -7,6 +7,7 @@ import configparser
 import webbrowser
 from datetime import datetime
 from loguru import logger
+from database import init_db
 
 # Needed for multiprocessing with PyInstaller
 import multiprocessing
@@ -25,9 +26,6 @@ if getattr(sys, "frozen", False) and hasattr(sys, "_MEIPASS"):
 parent_dir = os.path.dirname(os.path.realpath(__file__))
 if parent_dir not in sys.path:
     sys.path.append(parent_dir)
-
-# Import application modules
-from database import init_db
 
 # Global variables
 server_thread = None
@@ -129,31 +127,38 @@ def create_gui():
     root.geometry("320x120")  # Much smaller
     root.resizable(False, False)
     
+    # Set the window icon to use favicon.ico
+    icon_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "favicon.ico")
+    if os.path.exists(icon_path):
+        root.iconbitmap(icon_path)
+    else:
+        logger.warning(f"Icon file not found at {icon_path}")
+
     # Read configuration
     config = configparser.ConfigParser()
-    config.read('config.ini')
-    default_host = config.get('server', 'host', fallback='127.0.0.1')
-    default_port = config.get('server', 'port', fallback='8000')
-    
+    config.read("config.ini")
+    default_host = config.get("server", "host", fallback="127.0.0.1")
+    default_port = config.get("server", "port", fallback="8000")
+
     # Create frames with absolute minimal padding
     top_frame = tk.Frame(root)
     top_frame.pack(fill=tk.X, padx=2, pady=1)
-    
+
     # Host and port in one line
     tk.Label(top_frame, text="Host:").grid(row=0, column=0)
     host_entry = tk.Entry(top_frame, width=15)
     host_entry.grid(row=0, column=1, padx=2)
     host_entry.insert(0, default_host)
-    
+
     tk.Label(top_frame, text="Port:").grid(row=0, column=2, padx=1)
     port_entry = tk.Entry(top_frame, width=5)
     port_entry.grid(row=0, column=3)
     port_entry.insert(0, default_port)
-    
+
     # Status display
     status_frame = tk.Frame(root)
     status_frame.pack(fill=tk.X, pady=1)
-    
+
     tk.Label(status_frame, text="Status:").pack(side=tk.LEFT)
     status_var = tk.StringVar()
     status_var.set("Ready")
@@ -163,11 +168,11 @@ def create_gui():
     # Button frame with no padding
     button_frame = tk.Frame(root)
     button_frame.pack(fill=tk.X)
-    
+
     # Second button frame for utility buttons
     util_frame = tk.Frame(root)
     util_frame.pack(fill=tk.X, pady=1)
-    
+
     def start_server_click():
         """Start server button callback"""
         global server_thread, is_server_running
@@ -176,7 +181,7 @@ def create_gui():
         if check_server_status():
             logger.info("Server is already running!")
             return
-            
+
         # Temporarily disable both buttons during startup
         start_button.config(state=tk.DISABLED)
         stop_button.config(state=tk.DISABLED)
@@ -191,9 +196,10 @@ def create_gui():
             status_var.set("Error: Port must be a number")
             start_button.config(state=tk.NORMAL)
             return
-            
+
         # Check if port is available before trying to start
         import socket
+
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.settimeout(1)
         try:
@@ -220,10 +226,11 @@ def create_gui():
             target=start_server, args=(host, port), daemon=True
         )
         server_thread.start()
-        
+
         # Wait a moment then check if server actually started
         def check_startup_status():
             import time
+
             time.sleep(2)  # Give the server time to start
             if check_server_status():
                 logger.info("Server successfully started")
@@ -232,7 +239,7 @@ def create_gui():
                 status_var.set("Error: Failed to start")
                 start_button.config(state=tk.NORMAL)
                 stop_button.config(state=tk.DISABLED)
-                
+
         threading.Thread(target=check_startup_status, daemon=True).start()
 
     def check_server_status():
@@ -240,15 +247,17 @@ def create_gui():
         global is_server_running
         host = host_entry.get().strip()
         port = port_entry.get().strip()
-        
+
         try:
             import socket
             import urllib.request
             import urllib.error
-            
+
             # Try to connect to the server with a short timeout
             try:
-                response = urllib.request.urlopen(f"http://{host}:{port}/api/status", timeout=0.5)
+                response = urllib.request.urlopen(
+                    f"http://{host}:{port}/api/status", timeout=0.5
+                )
                 if response.getcode() == 200:
                     is_server_running = True
                     start_button.config(state=tk.DISABLED)
@@ -259,7 +268,7 @@ def create_gui():
             except (urllib.error.URLError, ConnectionRefusedError, socket.timeout):
                 # Server is not responding
                 pass
-            
+
             # Server is not running
             is_server_running = False
             start_button.config(state=tk.NORMAL)
@@ -267,7 +276,7 @@ def create_gui():
             browser_button.config(state=tk.DISABLED)
             status_var.set("Stopped")
             return False
-            
+
         except Exception as e:
             logger.error(f"Error checking server status: {str(e)}")
             return False
@@ -288,17 +297,18 @@ def create_gui():
         # Get server config for the shutdown URL
         host = host_entry.get().strip()
         port = port_entry.get().strip()
-        
+
         # Call the API shutdown endpoint to properly close Chrome
         try:
             import urllib.request
+
             shutdown_url = f"http://{host}:{port}/api/shutdown"
             logger.info(f"Sending shutdown request to {shutdown_url}")
             urllib.request.urlopen(shutdown_url)
             logger.info("Sent shutdown request to close browser")
         except Exception as e:
             logger.error(f"Failed to send shutdown request: {str(e)}")
-        
+
         # Stop server
         logger.info("Stopping server...")
         is_server_running = False
@@ -308,8 +318,9 @@ def create_gui():
         def update_ui_after_shutdown():
             # Wait a bit for the port to be released
             import time
+
             time.sleep(1.5)
-            
+
             # Check actual server status and update UI
             if not check_server_status():
                 logger.info("Server stopped.")
@@ -321,7 +332,7 @@ def create_gui():
                 stop_button.config(state=tk.DISABLED)
                 browser_button.config(state=tk.DISABLED)
                 status_var.set("Error - Restart App")
-        
+
         # Run the UI update in a separate thread to not block the GUI
         threading.Thread(target=update_ui_after_shutdown, daemon=True).start()
 
@@ -331,63 +342,65 @@ def create_gui():
         port = port_entry.get()
         url = f"http://{host}:{port}"
         webbrowser.open(url)
-        
+
     def open_config():
         """Open the configuration file in default text editor"""
         try:
-            config_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "config.ini")
+            config_path = os.path.join(
+                os.path.dirname(os.path.abspath(__file__)), "config.ini"
+            )
             os.startfile(config_path)
         except Exception as e:
             logger.error(f"Error opening config file: {str(e)}")
 
     # Plain basic buttons with explicit border and height to ensure visibility
     start_button = tk.Button(
-        button_frame, 
-        text="START", 
-        command=start_server_click, 
-        bg="#9dff9d", 
+        button_frame,
+        text="START",
+        command=start_server_click,
+        bg="#9dff9d",
         height=2,
-        borderwidth=2
+        borderwidth=2,
     )
     start_button.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=1, pady=1)
-    
+
     stop_button = tk.Button(
-        button_frame, 
-        text="STOP", 
-        command=stop_server_click, 
-        bg="#ff9d9d", 
+        button_frame,
+        text="STOP",
+        command=stop_server_click,
+        bg="#ff9d9d",
         height=2,
         borderwidth=2,
-        state=tk.DISABLED
+        state=tk.DISABLED,
     )
     stop_button.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=1, pady=1)
-    
+
     browser_button = tk.Button(
-        button_frame, 
-        text="BROWSER", 
-        command=open_browser, 
-        bg="#9d9dff", 
+        button_frame,
+        text="BROWSER",
+        command=open_browser,
+        bg="#9d9dff",
         height=2,
         borderwidth=2,
-        state=tk.DISABLED
+        state=tk.DISABLED,
     )
     browser_button.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=1, pady=1)
 
     # Config button - utility button to open config file
     config_button = tk.Button(
-        util_frame, 
-        text="EDIT CONFIG", 
+        util_frame,
+        text="EDIT CONFIG",
         command=open_config,
         bg="#f0f0f0",
         height=1,
-        borderwidth=1
+        borderwidth=1,
     )
     config_button.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=1, pady=1)
-    
+
     # Create a minimalist footer with version
     footer = tk.Label(root, text="Dikontenin Helper v1.0", font=("Arial", 7))
     footer.pack(side=tk.BOTTOM, pady=0)
-    
+
     # Create directories
     create_required_directories()
     setup_logging()

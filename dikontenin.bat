@@ -1,6 +1,13 @@
 @echo off
 setlocal enabledelayedexpansion
 
+REM Get the directory where the batch file is located
+set "SCRIPT_DIR=%~dp0"
+REM Remove trailing backslash
+set "SCRIPT_DIR=%SCRIPT_DIR:~0,-1%"
+REM Change to script directory
+cd /d "%SCRIPT_DIR%"
+
 REM Check if Python 3.12 is installed
 python --version 2>nul | findstr /r "^Python 3\.12\." >nul
 if errorlevel 1 (

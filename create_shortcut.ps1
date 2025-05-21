@@ -1,13 +1,15 @@
 $WshShell = New-Object -ComObject WScript.Shell
-$currentDir = Get-Location
-$shortcutPath = Join-Path $currentDir "DikontenIn.lnk"
-$targetPath = Join-Path $currentDir "dikontenin.bat"
-$iconPath = Join-Path $currentDir "favicon.ico"
+
+# Use the script's location to find the correct path
+$scriptPath = Split-Path -Parent -Path $MyInvocation.MyCommand.Definition
+$shortcutPath = Join-Path $scriptPath "DikontenIn.lnk"
+$targetPath = Join-Path $scriptPath "dikontenin.bat"
+$iconPath = Join-Path $scriptPath "favicon.ico"
 
 $Shortcut = $WshShell.CreateShortcut($shortcutPath)
 $Shortcut.TargetPath = $targetPath
 $Shortcut.IconLocation = $iconPath
-$Shortcut.WorkingDirectory = $currentDir.Path
+$Shortcut.WorkingDirectory = $scriptPath
 $Shortcut.Save()
 
 Write-Host "Shortcut created successfully at: $shortcutPath"
